@@ -1,5 +1,5 @@
 window.J20_CONFIG = {
-  SUPABASE_URL: "WKLEJ_TUTAJ_SUPABASE_URL",
-  SUPABASE_ANON_KEY: "WKLEJ_TUTAJ_SUPABASE_ANON_KEY",
+  SUPABASE_URL: "https://fhofuzvxxthmigjganlp.supabase.co",
+  SUPABASE_ANON_KEY: "sb_publishable__u7b139MjT9yz4w5nmPDng_tG6qdvXo",
   TELEGRAM_URL: "https://t.me/jacob20FX"
 };
