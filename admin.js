@@ -1,4 +1,4 @@
-const cfg = window.J20_CONFIG;
+const cfg = console.log("ADMIN START");window.J20_CONFIG;
 const client = supabase.createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY);
 const login = document.getElementById("login"), dashboard = document.getElementById("dashboard");
 
