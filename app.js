@@ -21,7 +21,16 @@ form.addEventListener("submit", async (e) => {
   button.disabled = false; button.textContent = "Wyślij zgłoszenie";
   if (error) { console.error(error); msg.textContent = "Nie udało się wysłać zgłoszenia. Sprawdź konfigurację Supabase."; return; }
   form.reset();
-  application_code, name:d.name, age:Number(d.age), telegram:d.telegram, email:d.email, country:d.country,
+  fetch("/api/send-email", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    name: d.name,
+    email: d.email,
+    telegram: d.telegram,
+    applicationCode: application_code
+  })
+}).catch(error => console.error("Email error:", error));,
   document.getElementById("applicationCode").textContent = application_code;
   document.getElementById("success").classList.remove("hidden");
   document.getElementById("success").scrollIntoView({behavior:"smooth", block:"center"});
