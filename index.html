@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Formularz rekrutacyjny do prywatnej społeczności tradingowej jacob20fx." />
+  <title>jacob20fx — aplikacja do grupy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="market-grid" aria-hidden="true"></div>
+
+  <header class="nav shell">
+    <a class="brand" href="#top" aria-label="jacob20fx">
+      <span class="brand-mark">J20</span>
+      <span>jacob20fx</span>
+    </a>
+    <a class="ghost-btn" href="#status">Sprawdź status</a>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <span class="eyebrow">PRYWATNA SPOŁECZNOŚĆ TRADINGOWA</span>
+        <h1>Dołącz do <span>jacob20fx</span> po krótkiej weryfikacji.</h1>
+        <p>
+          Wypełnij ankietę. Każde zgłoszenie jest sprawdzane ręcznie.
+          Po akceptacji zobaczysz kontakt do administratora na Telegramie.
+        </p>
+        <div class="hero-actions">
+          <a class="primary-btn" href="#formularz">Złóż aplikację</a>
+          <a class="text-link" href="#jak-to-dziala">Jak to działa →</a>
+        </div>
+        <div class="trust-row">
+          <div><strong>3 kroki</strong><span>do weryfikacji</span></div>
+          <div><strong>Ręczna</strong><span>akceptacja</span></div>
+          <div><strong>Telegram</strong><span>po zatwierdzeniu</span></div>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <div class="chart" aria-hidden="true">
+          <span style="height:35%"></span><span class="up" style="height:58%"></span>
+          <span style="height:45%"></span><span class="up" style="height:70%"></span>
+          <span class="up" style="height:82%"></span><span style="height:63%"></span>
+          <span class="up" style="height:92%"></span>
+        </div>
+        <div class="card-content">
+          <span class="status-dot"></span>
+          <p>Nabór do grupy</p>
+          <h2>Aktualnie otwarty</h2>
+          <small>Zgłoszenie nie gwarantuje przyjęcia.</small>
+        </div>
+      </aside>
+    </section>
+
+    <section id="jak-to-dziala" class="steps shell">
+      <article><span>01</span><h3>Wypełniasz ankietę</h3><p>Podajesz podstawowe informacje o sobie i swoim doświadczeniu.</p></article>
+      <article><span>02</span><h3>Czekasz na decyzję</h3><p>Administrator sprawdza zgłoszenie i zmienia jego status.</p></article>
+      <article><span>03</span><h3>Kontakt na Telegramie</h3><p>Po akceptacji otrzymujesz dostęp do danych kontaktowych.</p></article>
+    </section>
+
+    <section id="formularz" class="form-section shell">
+      <div class="section-heading">
+        <span class="eyebrow">FORMULARZ REKRUTACYJNY</span>
+        <h2>Złóż aplikację</h2>
+        <p>Odpowiedz szczerze. Wypełnienie zajmuje około 2 minuty.</p>
+      </div>
+
+      <form id="applicationForm" class="application-form">
+        <div class="form-grid">
+          <label>
+            <span>Imię lub nick *</span>
+            <input name="name" required maxlength="60" placeholder="np. Jakub" />
+          </label>
+          <label>
+            <span>Wiek *</span>
+            <input name="age" type="number" required min="18" max="99" placeholder="18+" />
+          </label>
+          <label>
+            <span>Nazwa użytkownika na Telegramie *</span>
+            <input name="telegram" required maxlength="60" placeholder="@twojnick" />
+          </label>
+          <label>
+            <span>Kraj *</span>
+            <input name="country" required maxlength="60" value="Polska" />
+          </label>
+          <label>
+            <span>Jak długo tradujesz? *</span>
+            <select name="experience" required>
+              <option value="">Wybierz</option>
+              <option>Mniej niż 3 miesiące</option>
+              <option>3–6 miesięcy</option>
+              <option>6–12 miesięcy</option>
+              <option>1–2 lata</option>
+              <option>Powyżej 2 lat</option>
+            </select>
+          </label>
+          <label>
+            <span>Główny rynek *</span>
+            <select name="market" required>
+              <option value="">Wybierz</option>
+              <option>Futures</option>
+              <option>Forex</option>
+              <option>Krypto</option>
+              <option>Akcje</option>
+              <option>Inny</option>
+            </select>
+          </label>
+        </div>
+
+        <label>
+          <span>Jakiej strategii używasz? *</span>
+          <textarea name="strategy" required maxlength="500" placeholder="Opisz krótko swoją strategię, np. LIT, MSNR, price action..."></textarea>
+        </label>
+
+        <label>
+          <span>Dlaczego chcesz dołączyć do jacob20fx? *</span>
+          <textarea name="reason" required maxlength="700" placeholder="Napisz, czego szukasz w grupie i co możesz wnieść od siebie."></textarea>
+        </label>
+
+        <label>
+          <span>Jaki jest Twój główny cel tradingowy? *</span>
+          <textarea name="goal" required maxlength="500" placeholder="np. poprawa powtarzalności, przejście funded challenge, rozwój systemu..."></textarea>
+        </label>
+
+        <label class="checkbox">
+          <input type="checkbox" name="rules" required />
+          <span>Potwierdzam, że podane informacje są prawdziwe i akceptuję zasady prywatności oraz poufności materiałów udostępnianych w grupie.</span>
+        </label>
+
+        <button class="primary-btn submit-btn" type="submit">Wyślij zgłoszenie</button>
+        <p class="form-note">Nie udostępniamy publicznie danych podanych w formularzu.</p>
+      </form>
+
+      <div id="successBox" class="success-box hidden" role="status">
+        <div class="success-icon">✓</div>
+        <h3>Zgłoszenie zostało zapisane</h3>
+        <p>Zachowaj swój numer aplikacji. Będzie potrzebny do sprawdzenia statusu.</p>
+        <code id="applicationId"></code>
+        <button id="copyId" class="ghost-btn" type="button">Kopiuj numer</button>
+      </div>
+    </section>
+
+    <section id="status" class="status-section shell">
+      <div class="status-card">
+        <div>
+          <span class="eyebrow">STATUS APLIKACJI</span>
+          <h2>Sprawdź decyzję</h2>
+          <p>Wpisz numer otrzymany po wysłaniu ankiety.</p>
+        </div>
+        <form id="statusForm" class="status-form">
+          <input id="statusId" required placeholder="np. J20-AB12CD" />
+          <button class="primary-btn" type="submit">Sprawdź</button>
+        </form>
+        <div id="statusResult" class="status-result hidden"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell">
+    <span>© 2026 jacob20fx</span>
+    <span>Trading wiąże się z ryzykiem. Treści grupy nie stanowią porady inwestycyjnej.</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>jacob20fx — panel zgłoszeń</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="admin-body">
+  <div class="market-grid" aria-hidden="true"></div>
+  <header class="nav shell">
+    <a class="brand" href="index.html"><span class="brand-mark">J20</span><span>jacob20fx</span></a>
+    <a class="ghost-btn" href="index.html">Powrót na stronę</a>
+  </header>
+
+  <main class="shell admin-main">
+    <section id="loginPanel" class="admin-login">
+      <span class="eyebrow">PANEL ADMINISTRATORA</span>
+      <h1>Zarządzanie zgłoszeniami</h1>
+      <p>Wersja demonstracyjna. Domyślny PIN: <strong>2020</strong>.</p>
+      <form id="pinForm">
+        <input id="pinInput" type="password" inputmode="numeric" required placeholder="Wpisz PIN" />
+        <button class="primary-btn" type="submit">Zaloguj</button>
+      </form>
+      <p id="pinError" class="error-text hidden">Nieprawidłowy PIN.</p>
+    </section>
+
+    <section id="dashboard" class="hidden">
+      <div class="dashboard-head">
+        <div><span class="eyebrow">PANEL ADMINISTRATORA</span><h1>Zgłoszenia</h1></div>
+        <div class="dashboard-actions">
+          <button id="exportBtn" class="ghost-btn">Eksport JSON</button>
+          <button id="logoutBtn" class="ghost-btn">Wyloguj</button>
+        </div>
+      </div>
+      <div id="stats" class="admin-stats"></div>
+      <div id="applications" class="applications-list"></div>
+      <p id="emptyState" class="empty-state hidden">Brak zgłoszeń.</p>
+    </section>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>
