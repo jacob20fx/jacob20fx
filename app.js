@@ -15,7 +15,7 @@ form.addEventListener("submit", async (e) => {
   const d = Object.fromEntries(new FormData(form).entries());
   const application_code = randomCode();
   const { error } = await client.from("applications").insert({
-    application_code, name:d.name, age:Number(d.age), telegram:d.telegram, country:d.country,
+    application_code, name:d.name, age:Number(d.age), telegram:d.telegram, email:d.email, country:d.country,
     experience:d.experience, market:d.market, strategy:d.strategy, reason:d.reason, goal:d.goal
   });
   button.disabled = false; button.textContent = "Wyślij zgłoszenie";
