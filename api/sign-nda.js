@@ -55,7 +55,12 @@ module.exports = async function handler(req, res) {
 
     const discordUrl = requiredEnv('DISCORD_INVITE_URL');
     return sendJson(res, 200, { signed: true, discordUrl });
-  } catch (error) {
-    return sendJson(res, 400, { error: error.message || 'Nie udało się zapisać podpisu.' });
+  }catch (error) {
+  return sendJson(res, 400, {
+    error: error.message,
+    stack: error.stack,
+    details: error
+  });
+}
   }
 };
