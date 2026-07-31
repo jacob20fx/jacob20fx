@@ -55,12 +55,11 @@ module.exports = async function handler(req, res) {
 
     const discordUrl = requiredEnv('DISCORD_INVITE_URL');
     return sendJson(res, 200, { signed: true, discordUrl });
-  }catch (error) {
+  catch (error) {
+  console.error(error);
+
   return sendJson(res, 400, {
     error: error.message,
-    stack: error.stack,
-    details: error
+    details: JSON.stringify(error, null, 2)
   });
 }
-  }
-};
