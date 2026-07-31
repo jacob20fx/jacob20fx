@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Elektroniczne podpisanie umowy NDA przed dostępem do prywatnej społeczności jacob20fx.">
+  <title>jacob20fx — podpisanie NDA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="nda-style.css">
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+
+  <header class="nav shell">
+    <a class="brand" href="/"><span class="brand-mark">J20</span><span>jacob20fx</span></a>
+    <span class="secure">Bezpieczny etap po płatności</span>
+  </header>
+
+  <main class="shell">
+    <section class="intro">
+      <span class="eyebrow">UMOWA O ZACHOWANIU POUFNOŚCI</span>
+      <h1>Podpisz NDA, aby otrzymać dostęp do Discorda.</h1>
+      <p>Najpierw sprawdzimy płatność Stripe. Następnie zapiszemy Twoją akceptację umowy i pokażemy jednorazowy etap dostępu do prywatnej społeczności.</p>
+    </section>
+
+    <section id="loading" class="panel state-card">
+      <div class="spinner" aria-hidden="true"></div>
+      <div><h2>Sprawdzanie płatności</h2><p>Proszę czekać kilka sekund.</p></div>
+    </section>
+
+    <section id="paymentError" class="panel state-card error hidden">
+      <div class="state-icon">!</div>
+      <div><h2>Nie udało się potwierdzić płatności</h2><p id="paymentErrorText">Otwórz tę stronę bezpośrednio po poprawnie zakończonej płatności Stripe.</p></div>
+    </section>
+
+    <section id="ndaSection" class="hidden">
+      <div class="panel nda-document">
+        <div class="document-heading">
+          <div><span class="eyebrow">WERSJA NDA: J20-NDA-2026-01</span><h2>Umowa o zachowaniu poufności</h2></div>
+          <span id="paymentBadge" class="badge">Płatność potwierdzona</span>
+        </div>
+
+        <div class="legal-text" id="ndaText">
+          <p>Niniejsza umowa o zachowaniu poufności („Umowa”) zostaje zawarta pomiędzy administratorem prywatnej społeczności tradingowej działającej pod nazwą <strong>jacob20fx</strong> („Administrator”) a osobą składającą podpis elektroniczny poniżej („Uczestnik”).</p>
+
+          <h3>1. Informacje poufne</h3>
+          <p>Za Informacje Poufne uznaje się wszelkie niepubliczne treści udostępniane w społeczności jacob20fx, w szczególności materiały edukacyjne, strategie, analizy, nagrania, transmisje, dokumenty, wiadomości, rozmowy, grafiki, zrzuty ekranu, ustawienia, modele działania oraz informacje organizacyjne.</p>
+
+          <h3>2. Obowiązki Uczestnika</h3>
+          <p>Uczestnik zobowiązuje się nie kopiować, nie nagrywać, nie fotografować, nie publikować, nie przesyłać i nie udostępniać osobom trzecim żadnych Informacji Poufnych bez uprzedniej zgody Administratora wyrażonej w formie dokumentowej.</p>
+
+          <h3>3. Zakaz przekazywania dostępu</h3>
+          <p>Uczestnik nie może udostępniać swojego konta, zaproszenia, danych logowania ani w inny sposób umożliwiać osobom trzecim korzystania z prywatnej społeczności.</p>
+
+          <h3>4. Zakaz odsprzedaży i komercyjnego wykorzystania</h3>
+          <p>Uczestnik nie może odsprzedawać, rozpowszechniać ani wykorzystywać komercyjnie materiałów, strategii i treści pochodzących ze społeczności jacob20fx, w całości ani we fragmentach.</p>
+
+          <h3>5. Własność materiałów</h3>
+          <p>Uzyskanie dostępu nie przenosi na Uczestnika praw autorskich, licencji do dalszego rozpowszechniania ani innych praw własności intelektualnej do udostępnianych materiałów.</p>
+
+          <h3>6. Naruszenie Umowy</h3>
+          <p>Naruszenie Umowy może skutkować natychmiastowym odebraniem dostępu bez uszczerbku dla prawa Administratora do dochodzenia roszczeń na zasadach ogólnych. Zakres odpowiedzialności i ewentualne roszczenia będą oceniane zgodnie z obowiązującym prawem.</p>
+
+          <h3>7. Okres poufności</h3>
+          <p>Obowiązek zachowania poufności obowiązuje przez czas uczestnictwa w społeczności oraz przez 5 lat po jego zakończeniu, z wyjątkiem informacji, które wcześniej stały się publicznie dostępne w sposób zgodny z prawem i bez naruszenia niniejszej Umowy.</p>
+
+          <h3>8. Charakter treści tradingowych</h3>
+          <p>Treści udostępniane w społeczności mają charakter edukacyjny i informacyjny. Nie stanowią indywidualnej porady inwestycyjnej ani gwarancji osiągnięcia wyniku. Trading wiąże się z ryzykiem utraty kapitału.</p>
+
+          <h3>9. Podpis elektroniczny</h3>
+          <p>Wpisanie imienia i nazwiska, zaznaczenie pól potwierdzających oraz kliknięcie przycisku „Podpisuję NDA” stanowi świadome potwierdzenie zapoznania się z treścią Umowy i jej akceptację w formie elektronicznej.</p>
+        </div>
+      </div>
+
+      <form id="ndaForm" class="panel form-panel">
+        <h2>Dane osoby podpisującej</h2>
+        <div class="grid">
+          <label><span>Imię i nazwisko *</span><input name="fullName" autocomplete="name" required minlength="3" maxlength="120" placeholder="Jan Kowalski"></label>
+          <label><span>Adres e-mail z płatności</span><input id="email" name="email" type="email" readonly></label>
+          <label><span>Nazwa użytkownika Discord *</span><input name="discordUsername" required minlength="2" maxlength="80" placeholder="twojnick"></label>
+          <label><span>Podpis elektroniczny *</span><input name="signature" required minlength="3" maxlength="120" placeholder="Wpisz ponownie imię i nazwisko"></label>
+        </div>
+
+        <label class="check"><input name="confidentialityAccepted" type="checkbox" required><span>Przeczytałem/am całą Umowę i zobowiązuję się do zachowania poufności.</span></label>
+        <label class="check"><input name="electronicSignatureAccepted" type="checkbox" required><span>Wyrażam zgodę na zawarcie Umowy i złożenie podpisu w formie elektronicznej.</span></label>
+        <label class="check"><input name="privacyAccepted" type="checkbox" required><span>Przyjmuję do wiadomości, że dane podpisu, identyfikator płatności, data, godzina i dane techniczne połączenia zostaną zapisane w celu udokumentowania zawarcia Umowy i ochrony roszczeń.</span></label>
+
+        <button id="signBtn" class="primary" type="submit">Podpisuję NDA</button>
+        <p id="formMessage" class="message" role="status"></p>
+      </form>
+    </section>
+
+    <section id="successSection" class="panel success hidden">
+      <div class="tick">✓</div>
+      <h2>NDA zostało podpisane</h2>
+      <p>Twój podpis został zapisany. Poniższy przycisk prowadzi do prywatnej społeczności Discord.</p>
+      <a id="discordButton" class="primary" href="#" rel="noopener noreferrer">Dołącz do Discorda</a>
+      <small>Nie przekazuj zaproszenia innym osobom.</small>
+    </section>
+  </main>
+
+  <footer class="shell">© 2026 jacob20fx · Treści nie stanowią porady inwestycyjnej.</footer>
+  <script src="nda.js"></script>
+</body>
+</html>
