@@ -38,6 +38,7 @@ async function supabaseRequest(path, options = {}) {
     ...options,
     headers: {
       apikey: serviceKey,
+      Authorization: Bearer ${serviceKey},
       'Content-Type': 'application/json',
       ...(options.headers || {})
     }
