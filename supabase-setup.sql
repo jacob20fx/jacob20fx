@@ -72,3 +72,36 @@ grant select, update, delete on public.applications to authenticated;
 -- 2. Skopiuj UUID użytkownika
 -- 3. Uruchom poniższą komendę po podmianie UUID:
 -- insert into public.admin_users(user_id) values ('TU-WKLEJ-UUID-ADMINA');
+
+-- ============================================================
+-- NDA PO PŁATNOŚCI STRIPE
+-- ============================================================
+create table if not exists public.nda_signatures (
+  id uuid primary key default gen_random_uuid(),
+  stripe_session_id text unique not null,
+  stripe_payment_link_id text,
+  stripe_customer_email text not null,
+  full_name text not null,
+  discord_username text not null,
+  signature_text text not null,
+  nda_version text not null,
+  nda_text_hash text not null,
+  signed_at timestamptz not null default now(),
+  ip_address inet,
+  user_agent text,
+  confidentiality_accepted boolean not null default false,
+  electronic_signature_accepted boolean not null default false,
+  privacy_notice_accepted boolean not null default false,
+  created_at timestamptz not null default now()
+);
+
+alter table public.nda_signatures enable row level security;
+
+-- Brak polityk publicznych: przeglądarka nie ma bezpośredniego dostępu do podpisów.
+-- Zapisy wykonuje wyłącznie funkcja serwerowa Vercel przy użyciu SERVICE ROLE KEY.
+
+create index if not exists nda_signatures_email_idx
+on public.nda_signatures (lower(stripe_customer_email));
+
+create index if not exists nda_signatures_signed_at_idx
+on public.nda_signatures (signed_at desc);
